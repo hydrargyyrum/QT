@@ -11,30 +11,24 @@
  #include <QtWidgets>
 
  // ======================================================================
- class PainterPathWidget : public QWidget {
+ class Window : public QLabel {
+ private:
+     QPoint m_ptPosition;
+
  protected:
-     virtual void paintEvent(QPaintEvent*)
+     virtual void mousePressEvent(QMouseEvent* pe)
      {
-         QPainterPath path;
-         QPointF      pt1(width(), height() / 2);
-         QPointF      pt2(width() / 2, -height());
-         QPointF      pt3(width() / 2, 2 * height());
-         QPointF      pt4(0, height() / 2);
-         path.moveTo(pt2); //pt1
-         path.cubicTo(pt1, pt3, pt4); //pt2
+         m_ptPosition = pe->pos();
+     }
 
-         QRect rect(width() / 4, height() / 4, width() / 2, height() / 2);
-         path.addRect(rect);
-         path.addEllipse(rect);
-
-         QPainter painter(this);
-         painter.setRenderHint(QPainter::Antialiasing, true);
-         painter.setPen(QPen(Qt::blue, 6));
-         painter.drawPath(path);
+     virtual void mouseMoveEvent(QMouseEvent* pe)
+     {
+         move(pe->globalPos() - m_ptPosition);
      }
 
  public:
-     PainterPathWidget(QWidget* pwgt = 0) : QWidget(pwgt)
+     Window(QWidget* pwgt = 0)
+         : QLabel(pwgt,  Qt::FramelessWindowHint | Qt::Window)
      {
      }
  };
@@ -43,11 +37,22 @@
  int main(int argc, char** argv)
  {
      QApplication app(argc, argv);
+     Window       wnd;
 
-     PainterPathWidget wgt;
+     wnd.setAttribute(Qt::WA_TranslucentBackground);
+     wnd.setPixmap(QPixmap("/home/hydrargyrum/images.png"));
 
-     wgt.resize(200, 200);
-     wgt.show();
+     QPushButton* pcmdQuit = new QPushButton("X");
+     pcmdQuit->setFixedSize(16, 16);
+     QObject::connect(pcmdQuit, SIGNAL(clicked()), &app, SLOT(quit()));
+
+     //setup layout
+     QVBoxLayout* pvbx = new QVBoxLayout;
+     pvbx->addWidget(pcmdQuit);
+     pvbx->addStretch(1);
+     wnd.setLayout(pvbx);
+
+     wnd.show();
 
      return app.exec();
  }
