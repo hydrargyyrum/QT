@@ -1,6 +1,6 @@
 # This file is used to ignore files which are generated
 # ----------------------------------------------------------------------------
-Qt_22_Color
+Qt_21_CustomGraphicsView
 *~
 *.autosave
 *.a
@@ -70,4 +70,3 @@ Thumbs.db
 # --------
 *.dll
 *.exe
-
