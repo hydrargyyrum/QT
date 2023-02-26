@@ -25,7 +25,7 @@ CustomWidget::CustomWidget(QWidget* pwgt/*= 0*/) : QFrame(pwgt)
 /*virtual*/ void CustomWidget::paintEvent(QPaintEvent*) 
 {
     QPainter        painter(this);
-    QLinearGradient gradient(0, 0, width(), height());
+   QLinearGradient gradient(0, 0, width(), height());
     float           f = m_nProgress / 100.0f;
 
     gradient.setColorAt(0, Qt::black);
@@ -40,6 +40,10 @@ CustomWidget::CustomWidget(QWidget* pwgt/*= 0*/) : QFrame(pwgt)
     painter.drawText(rect(), Qt::AlignCenter, str);
 
     drawFrame(&painter);
+   /* painter.fillRect(rect(), Qt::black);
+    painter.setBrush(Qt::red);
+    painter.setPen(Qt::red);
+    painter.drawRect(0, 0, (int)(width() * 1), height()); */
 }
 
 // ----------------------------------------------------------------------

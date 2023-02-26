@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -9,13 +9,16 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    listview.cpp \
-    main.cpp \
-    IntListModel.cpp
+    ListViewObjects.cpp \
+    ListViewObjectsItem.cpp \
+    MyWidget.cpp \
+    main.cpp
 
 HEADERS += \
-    IntListModel.h \
-    listview.h
+    ListViewObjects.h \
+    ListViewObjectsItem.h \
+    MyWidget.h \
+    QExLabel.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

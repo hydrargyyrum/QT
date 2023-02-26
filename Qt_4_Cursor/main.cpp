@@ -17,9 +17,8 @@
      QWidget      wgt;
      QPixmap      pix("/home/hydrargyrum/clock.png");
      QCursor      cur(pix);
-
      wgt.setCursor(cur);
-     wgt.resize(900, 500);
+     wgt.resize(800, 200);
      wgt.show();
 
      return app.exec();
