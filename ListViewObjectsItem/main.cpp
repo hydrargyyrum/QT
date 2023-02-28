@@ -27,7 +27,7 @@ QList<MyWidget*> createWidgets_temp(int n){
 int main(int argc, char** argv)
 {
     QApplication app( argc, argv );
-    int k =3;
+    int k =2;
 
     QWidget w;
     ListViewObjectsItem model(createWidgets_temp(k));
