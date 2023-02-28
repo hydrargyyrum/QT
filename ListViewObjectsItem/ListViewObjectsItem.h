@@ -9,4 +9,8 @@ private:
 
 public:
     ListViewObjectsItem(const QList<MyWidget*>& list, QObject* pobj = 0);
+
+    QVariant data(const QModelIndex& index, int nRole) const;
+
+    int rowCount(const QModelIndex& parent = QModelIndex()) const;
 };

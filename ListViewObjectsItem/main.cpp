@@ -16,31 +16,29 @@ QList<MyWidget> createWidgets(QSqlDatabase db){
 
 QList<MyWidget*> createWidgets_temp(int n){
     QList<MyWidget*> list;
-
-
+    MyWidget** mpWidget = new MyWidget* [n];
+    for (int i=0; i < n; i++) {
+        mpWidget[i]= new MyWidget(nullptr,i);
+        list << mpWidget[i];
+    }
+    return list;
 };
 
 int main(int argc, char** argv)
 {
     QApplication app( argc, argv );
-  MyWidget wgt(nullptr,1);
- /* QWidget w;
-    QStringListModel model;
-    model.setStringList(QStringList() <<"a"]]<<"b");
-    QListView* pl = new QListView;
+    int k =3;
+
+    QWidget w;
+    ListViewObjectsItem model(createWidgets_temp(k));
+    ListViewObjects* pl = new ListViewObjects;
     pl->setModel(&model);
-QHBoxLayout* ph = new QHBoxLayout;
-ph->addWidget(pl);
-w.setLayout(ph);
-w.show(); */
-    //ListViewObjectsItem model(createWidgets_temp(3));
+    QHBoxLayout* ph = new QHBoxLayout;
+    ph->addWidget(pl);
+    w.setLayout(ph);
+    w.show();
 
-
-
-   // ListViewObjects list;
-  //  list.setModel(&model);
-   // list.show();
-   // MyWidget wgt(nullptr,1);
+    MyWidget wgt(nullptr,k);
     wgt.show();
 
 

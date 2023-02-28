@@ -22,9 +22,6 @@
      list.setModel(&model);
      list.show();
 
-     QTableView table;
-     table.setModel(&model);
-     table.show();
 
      return app.exec();
  }

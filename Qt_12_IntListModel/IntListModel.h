@@ -23,28 +23,9 @@
 
      QVariant data(const QModelIndex& index, int nRole) const;
 
-     bool setData(const QModelIndex& index,
-                  const QVariant&    value,
-                  int                nRole
-                 );
+
 
      int rowCount(const QModelIndex& parent = QModelIndex()) const;
 
-     QVariant headerData(int             nSection,
-                         Qt::Orientation orientation,
-                         int             nRole = Qt::DisplayRole
-                        ) const;
-
-     Qt::ItemFlags flags(const QModelIndex &index) const;
-
-     bool insertRows(int                nRow,
-                     int                nCount,
-                     const QModelIndex& parent = QModelIndex()
-                    );
-
-     bool removeRows(int                nRow,
-                     int                nCount,
-                     const QModelIndex& parent = QModelIndex()
-                    );
 
  };
