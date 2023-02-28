@@ -2,8 +2,7 @@
 #include <QLabel>
 #include <QMouseEvent>
 
-class QExLabel : public QLabel
-{
+class QExLabel : public QLabel {
     Q_OBJECT
 public:
     QExLabel(QWidget* parent = 0) : QLabel(parent){};
