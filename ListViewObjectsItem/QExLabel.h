@@ -9,11 +9,5 @@ public:
 signals:
     void clicked();
 protected:
-    void mouseReleaseEvent(QMouseEvent *e)
-    {
-        if(e->button() == Qt::LeftButton)
-        {
-            emit clicked();
-        }
-    }
+    void mouseReleaseEvent(QMouseEvent *e);
 };

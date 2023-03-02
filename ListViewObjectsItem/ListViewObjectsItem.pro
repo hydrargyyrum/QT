@@ -12,6 +12,7 @@ SOURCES += \
     ListViewObjects.cpp \
     ListViewObjectsItem.cpp \
     MyWidget.cpp \
+    QExLabel.cpp \
     main.cpp
 
 HEADERS += \
